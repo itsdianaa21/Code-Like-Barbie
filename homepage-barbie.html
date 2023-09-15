@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital@1&family=Great+Vibes&family=Roboto+Mono:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="src/barbie.css" />
+    <style>
+      .barbie-name {
+        height: 200px;
+        width: 300px;
+        transform: rotate(17deg);
+        max-height: 300px;
+        max-width: 400px;
+        margin: 0 150px;
+      }
+      nav {
+        padding: 20px 0;
+      }
+      nav ul {
+        padding: 0;
+        margin: 0;
+      }
+      nav li {
+        color: #e23fa3;
+        display: inline-block;
+        margin: 20px 100px;
+        font-size: 48px;
+        font-family: "Comic Neue", "Great Vibes", "Roboto Mono", monospace,
+          cursive;
+        font-weight: 900;
+      }
+      .content-container {
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+      .grid {
+        display: grid;
+        grid-gap: 64px;
+      }
+      body {
+        background-color: #fff3fa;
+      }
+      header h1 {
+        font-weight: 700;
+        font-size: 96px;
+        line-height: 1;
+        margin: 30px 0;
+      }
+      header h2 {
+        font-weight: 400;
+        font-size: 40px;
+        line-height: 1.5;
+        margin: 0;
+      }
+      header h1,
+      p {
+        color: #e23fa3;
+        font-size: 84px;
+        text-align: center;
+        font-family: "Comic Neue", "Great Vibes", "Roboto Mono", monospace,
+          cursive;
+        margin: 30px;
+        padding: 30px;
+      }
+      main {
+        background-color: white;
+      }
+      .main-picture {
+        max-width: 100%;
+        display: block;
+      }
+      section {
+        max-width: 100%;
+        margin: 10px;
+        padding: 50px;
+      }
+      .barbie-trailer {
+        display: block;
+        margin: auto;
+        padding: 50px;
+        border: solid 15px;
+        border-style: dotted;
+        color: #e23fa3;
+      }
+      p.description {
+        color: #e23fa3;
+        font-size: 32px;
+        text-align: center;
+        font-family: "Comic Neue", "Great Vibes", "Roboto Mono", monospace,
+          cursive;
+        margin: 35px;
+        padding: 35px;
+      }
+      .container-carousel {
+        perspective: 1000px;
+        display: inline;
+        max-width: 100%;
+        margin: 10px;
+        padding: 50px;
+      }
+      div#carousel {
+        perspective: 1200px;
+        background: #fff4fa;
+        position: relative;
+        margin: 0 auto;
+        overflow: hidden;
+        height: 600px;
+        width: 1000px;
+        padding: 50px;
+        border: solid 15px;
+        border-style: dotted;
+        color: #e23fa3;
+      }
+      div#carousel ~ span {
+        color: #e23fa3;
+        background-color: #ffabd9;
+        margin: 5%;
+        display: inline-block;
+        text-decoration: none;
+        font-size: 2rem;
+        transition: 0.6s color;
+        position: relative;
+        margin-top: -6rem;
+        line-height: 0;
+      }
+      div#carousel ~ span:hover {
+        color: #888;
+        cursor: pointer;
+      }
+      figure#spinner {
+        transform-style: preserve-3d;
+        height: 300px;
+        transform-origin: 50% 50% -500px;
+        transition: 1s;
+        position: relative;
+      }
+      figure#spinner img {
+        width: 40%;
+        max-width: 425px;
+        position: absolute;
+        left: 30%;
+        transform-origin: 50% 50% -500px;
+        outline: 1px solid transparent;
+      }
+      figure#spinner img:nth-child(1) {
+        transform: rotateY(0deg);
+      }
+      figure#spinner img:nth-child(2) {
+        transform: rotateY(-45deg);
+      }
+      figure#spinner img:nth-child(3) {
+        transform: rotateY(-90deg);
+      }
+      figure#spinner img:nth-child(4) {
+        transform: rotateY(-135deg);
+      }
+      figure#spinner img:nth-child(5) {
+        transform: rotateY(-180deg);
+      }
+      figure#spinner img:nth-child(6) {
+        transform: rotateY(-225deg);
+      }
+      figure#spinner img:nth-child(7) {
+        transform: rotateY(-270deg);
+      }
+      figure#spinner img:nth-child(8) {
+        transform: rotateY(-315deg);
+      }
+      .grid {
+        display: grid;
+        grid-gap: 24px;
+      }
+      .container-gallery {
+        display: inline;
+        max-width: 100%;
+        margin: 10px;
+        padding: 50px;
+      }
+      .photo-gallery {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+      }
+      .column {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .photos img {
+        width: 500px;
+        border-radius: 5px;
+        height: auto;
+        object-fit: fill;
+        background-position: center;
+      }
+      .grid-2-columns {
+        grid-template-columns: 1fr 1fr;
+      }
+      .reviews {
+        text-align: center;
+      }
+      .card {
+        background: white;
+        margin: 30px 0;
+      }
+      .card-body {
+        padding: 30px;
+      }
+      .review {
+        font-size: 21px;
+      }
+      .card-footer {
+        padding: 0;
+      }
+      .btn {
+        display: block;
+        color: #fff4fa;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 21px;
+        text-align: center;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        padding: 16px;
+        background-color: #e23fa3;
+        text-decoration: none;
+      }
+      .grid-3-columns {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+      h2 {
+        color: #e23fa3;
+        text-align: center;
+        margin: 30px;
+        padding: 30px;
+      }
+      .blink {
+        background: rgb(255, 171, 217);
+        color: #e23fa3;
+        text-align: center;
+        font-family: "Comic Neue", "Great Vibes", "Roboto Mono", monospace,
+          cursive;
+        padding: 30px;
+        animation: blink-animation 1s steps(5, start) infinite;
+        -webkit-animation: blink-animation 1s steps(5, start) infinite;
+      }
+      .text {
+        font-size: 45px;
+        font-family: "Comic Neue", "Great Vibes", "Roboto Mono", monospace,
+          cursive;
+        color: white;
+        animation: blink 1s linear infinite;
+      }
+      @keyframes blink {
+        from {
+          opacity: 1;
+        }
+        to {
+          opacity: 0;
+        }
+      }
+    </style>
+    <script>
+      var angle = 0;
+      function galleryspin(sign) {
+        spinner = document.querySelector("#spinner");
+        if (sign) {
+          angle = angle + 45;
+        } else {
+          angle = angle - 45;
+        }
+        spinner.setAttribute(
+          "style",
+          "-webkit-transform: rotateY(" +
+            angle +
+            "deg); -moz-transform: rotateY(" +
+            angle +
+            "deg); transform: rotateY(" +
+            angle +
+            "deg);"
+        );
+      }
+      $(function () {
+        var $blinkText = $(".blinking");
+        setInterval(function () {
+          $blinkText.toggleClass("blink");
+        }, 1000);
+      });
+    </script>
+    <title>Code like Barbie</title>
+  </head>
+  <body>
+    <nav class="d-flex justify-content-between">
+      <img
+        src="images/barbie-name.png"
+        alt="BarbiehHeaderImage"
+        class="barbie-name d-none d-md-block"
+      />
+      <ul class="actors">
+        <li>Margot Robbie</li>
+        <li>Ryan Gosling</li>
+      </ul>
+    </nav>
+    <div class="content-container">
+      <header>
+        <h1>Who is Barbie?</h1>
+        <p>Barbie is many things!</p>
+      </header>
+      <main>
+        <section class="grid grid-2-columns">
+          <div>
+            <img
+              src="images/barbie-banner.jpeg"
+              alt="Barbie Main"
+              class="main-picture"
+            />
+          </div>
+          <div>
+            <p class="description">
+              Barbie is a fashion doll created by Ruth Handler, manufactured by
+              the toy company Mattel, having launched back in 1959. I, like many
+              others, went to see the movie that came out in 2023, and was
+              amazed at how beautiful and touching it was. While not everyone
+              had the same reaction nor got the same message from it, I believe
+              it is something everyone could learn from.
+            </p>
+          </div>
+        </section>
+      </main>
+      <div class="blink">
+        <span class="text">Trailer Below</span>
+      </div>
+      <section class="trailer">
+        <iframe
+          width="950"
+          height="533"
+          src="https://www.youtube.com/embed/pBk4NYhWNMM"
+          class="barbie-trailer"
+          title="Barbie | Main Trailer"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
+      </section>
+      <div class="blink">
+        <span class="text">CAST</span>
+      </div>
+      <div class="container-carousel">
+        <div id="carousel">
+          <figure id="spinner">
+            <img
+              src="images/margot-robbie.png"
+              alt="Margot"
+              title="Margot Robbie"
+            />
+            <img
+              src="images/ryan-gosling.png"
+              alt="Ryan"
+              title="Ryan Gosling"
+            />
+            <img src="images/kate-mckinnon.png" alt="Kate" title="Issa Rae" />
+            <img src="images/simu-liu.png" alt="Simu" title="Simu Liu" />
+            <img
+              src="images/helen-mirren.png"
+              alt="Helen"
+              title="Helen Mirren"
+            />
+            <img src="images/will-ferrell.png" alt="Will" title="Scott Evans" />
+            <img
+              src="images/america-ferrera.png"
+              alt="America"
+              title="America Ferrera"
+            />
+            <img
+              src="images/michael-cera.png"
+              alt="Michael"
+              title="Michael Cera"
+            />
+          </figure>
+        </div>
+        <span style="float: left" class="ss-icon" onclick="galleryspin('-')"
+          >&lt;Prev</span
+        >
+        <span style="float: right" class="ss-icon" onclick="galleryspin('')"
+          >Next&gt;</span
+        >
+      </div>
+      <div class="blink">
+        <span class="text">Gallery</span>
+      </div>
+      <div class="container-gallery">
+        <div class="photo-gallery">
+          <div class="column">
+            <div class="photos">
+              <img src="images/barbie-party.png" alt="" title="" />
+            </div>
+            <div class="photos">
+              <img src="images/barbie-ken-party.jpeg" alt="" />
+            </div>
+            <div class="photos">
+              <img src="images/barbie-hat.jpeg" alt="" />
+            </div>
+            <div class="photos">
+              <img src="images/barbie-beginning.jpeg" alt="" />
+            </div>
+            <div class="photos">
+              <img src="images/barbie-takeover.png" alt="" />
+            </div>
+          </div>
+          <div class="column">
+            <div class="photos">
+              <img src="images/barbie-ken-sing.png" alt="" />
+            </div>
+            <div class="photos">
+              <img src="images/barbie-ken-rollerblading.jpeg" alt="" />
+            </div>
+            <div class="photos">
+              <img src="images/barbie-car.jpeg" alt="" />
+            </div>
+            <div class="column">
+              <div class="photos">
+                <img src="images/barbie-ken-car.avif" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <section>
+        <div class="blink">
+          <span class="text">Real Reviews</span>
+        </div>
+        <div class="column">
+          <div class="grid grid-3-columns">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="text-center">VAIBHAV KUMAR</h5>
+                <p class="review">
+                  "The film centers around Barbie, voiced by a charismatic and
+                  talented actress, as she embarks on a thrilling adventure in a
+                  magical world. The animation is a visual treat, with vibrant
+                  colors and attention to detail, making it an absolute joy to
+                  watch. From the whimsical landscapes to the meticulously
+                  designed Barbie dolls and their accessories, the animation
+                  breathes life into the beloved toys, making them leap off the
+                  screen with charm and charisma.."(click below for more)
+                  <br />
+                  ⭐️⭐️⭐️⭐️
+                </p>
+              </div>
+              <div class="card-footer">
+                <a
+                  href="https://www.google.com/support/contact/bin/request.py?entity=%7B%22author%22:%22AIe9_BHrp2_dfyl3zpbGojpkFa9kY6AvBML8qnH9j_muAjaHbBFg3DBUR0RJcSG8akV_bekBomX-%22,%22groups%22:%5B%22ugc%22,%22text_review%22%5D,%22knowledgeGraphMid%22:%22/g/11bytn60s0%22%7D&client=302&contact_type=anno&hl=en"
+                  class="btn"
+                  target="_blank"
+                  >Click Here!!</a
+                >
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-body">
+                <h5 class="text-center">Jacob White</h5>
+                <p class="review">
+                  "The Barbie movie is undoubtedly a delightful cinematic gem
+                  that captures the hearts of audiences of all ages. Its unique
+                  blend of enchanting storytelling, visually stunning animation,
+                  and empowering messages make it an exceptional film that
+                  stands out among its peers. First and foremost, the Barbie
+                  movie's captivating narrative is a true testament to the art
+                  of storytelling. The film takes the audience on a thrilling
+                  adventure, filled with unexpected twists and turns.."(click
+                  below for more)
+                  <br />
+                  ⭐️⭐️⭐️⭐️⭐️
+                </p>
+              </div>
+              <div class="card-footer">
+                <a
+                  href="https://www.google.com/support/contact/bin/request.py?entity=%7B%22author%22:%22AIe9_BHrp2_dfyl3zpbGojpkFa9kY6AvBML8qnH9j_muAjaHbBFg3DBUR0RJcSG8akV_bekBomX-%22,%22groups%22:%5B%22ugc%22,%22text_review%22%5D,%22knowledgeGraphMid%22:%22/g/11bytn60s0%22%7D&client=302&contact_type=anno&hl=en"
+                  class="btn"
+                  target="_blank"
+                  >Click Here!!</a
+                >
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-body">
+                <h5 class="text-center">Tyler Skeen</h5>
+                <p class="review">
+                  "“BARBIE” (Spoiler Free Review) 👱🏻‍♀️💖 Simply a MASTERPIECE. As
+                  expected “Barbie” is A lot of happy fun! 💕 Greta Gerwig is a
+                  director I’ve really come to appreciate & LOVE. Greta is one
+                  of the most wholesome filmmakers working today. “Lady bird” is
+                  my favourite coming of age story in film and similarly, I have
+                  to say right off the bat-this film is ridiculously hilarious.
+                  Tongue and cheek? Sure. Just exceptionally written characters
+                  also. The quirks between Margot Robbie (Barbie) & Ryan Gosling
+                  (Ken) are just magic together on screen."(click below for
+                  more)
+                  <br />
+                  ⭐️⭐️⭐️⭐️⭐️
+                </p>
+              </div>
+              <div class="card-footer">
+                <a
+                  href="https://www.google.com/support/contact/bin/request.py?entity=%7B%22author%22:%22AIe9_BHrp2_dfyl3zpbGojpkFa9kY6AvBML8qnH9j_muAjaHbBFg3DBUR0RJcSG8akV_bekBomX-%22,%22groups%22:%5B%22ugc%22,%22text_review%22%5D,%22knowledgeGraphMid%22:%22/g/11bytn60s0%22%7D&client=302&contact_type=anno&hl=en"
+                  class="btn"
+                  target="_blank"
+                  >Click Here!!</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="blink">
+          <span class="text">My Favorite Songs</span>
+        </div>
+        <h2>
+          While the movie had an amazing playlist, these were my top 3
+          favorites! Hope you enjoy them as well!
+        </h2>
+        <div class="spotify-embeds">
+          <div class="grid grid-3-columns">
+            <iframe
+              style="border-radius: 12px"
+              src="https://open.spotify.com/embed/track/1vYXt7VSjH9JIM5oRRo7vA?utm_source=generator"
+              width="100%"
+              height="152"
+              frameborder="0"
+              allowfullscreen=""
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"
+            ></iframe>
+            <iframe
+              style="border-radius: 12px"
+              src="https://open.spotify.com/embed/track/6wf7Yu7cxBSPrRlWeSeK0Q?utm_source=generator"
+              width="100%"
+              height="152"
+              frameborder="0"
+              allowfullscreen=""
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"
+            ></iframe>
+            <iframe
+              style="border-radius: 12px"
+              src="https://open.spotify.com/embed/track/3zXIvb4nZ3cTdT8CsbTy3U?utm_source=generator"
+              width="100%"
+              height="152"
+              frameborder="0"
+              allowfullscreen=""
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"
+            ></iframe>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
