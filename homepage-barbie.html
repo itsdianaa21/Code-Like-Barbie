@@ -23,23 +23,18 @@
     <link rel="stylesheet" href="src/barbie.css" />
     <style>
       .barbie-name {
-        height: 200px;
-        width: 300px;
+        width: 100%;
+        display: block;
         transform: rotate(17deg);
-        max-height: 300px;
-        max-width: 400px;
-        margin: 0 150px;
+        max-height: 100px;
+        max-width: 200px;
       }
       nav {
         position: sticky;
         box-sizing: border-box;
         background-color: #ffabd9;
-        top: 0%;
-        left: 50%;
-        width: auto;
         display: flex;
         align-items: center;
-        z-index: 1;
       }
       nav ul {
         padding: 0;
@@ -48,8 +43,8 @@
       nav li {
         color: #e23fa3;
         display: inline-block;
-        margin: 20px 100px;
-        font-size: 48px;
+        margin: 20px 20px;
+        font-size: 22px;
         font-family: "Comic Neue", "Great Vibes", "Roboto Mono", monospace,
           cursive;
         font-weight: 900;
@@ -65,26 +60,16 @@
       body {
         background-color: #fff3fa;
       }
-      header h1 {
-        font-weight: 700;
-        font-size: 96px;
-        line-height: 1;
-        margin: 30px 0;
-      }
-      header h2 {
-        font-weight: 400;
-        font-size: 40px;
-        line-height: 1.5;
-        margin: 0;
-      }
       header h1,
-      p {
+      header p {
+        font-weight: 700;
+        line-height: 1;
         color: #e23fa3;
-        font-size: 84px;
+        font-size: 36px;
         text-align: center;
         font-family: "Comic Neue", "Great Vibes", "Roboto Mono", monospace,
           cursive;
-        margin: 30px;
+        margin: 10px;
         padding: 30px;
       }
       main {
@@ -93,6 +78,8 @@
       .main-picture {
         max-width: 100%;
         display: block;
+        overflow-clip-margin: content-box;
+        overflow: clip;
       }
       section {
         max-width: 100%;
@@ -109,7 +96,7 @@
       }
       p.description {
         color: #e23fa3;
-        font-size: 32px;
+        font-size: 36px;
         text-align: center;
         font-family: "Comic Neue", "Great Vibes", "Roboto Mono", monospace,
           cursive;
@@ -261,6 +248,7 @@
         background: rgb(255, 171, 217);
         color: #e23fa3;
         text-align: center;
+        font-size: 36px;
         font-family: "Comic Neue", "Great Vibes", "Roboto Mono", monospace,
           cursive;
         padding: 30px;
@@ -268,7 +256,7 @@
         -webkit-animation: blink-animation 1s steps(5, start) infinite;
       }
       .text {
-        font-size: 45px;
+        font-size: 32px;
         font-family: "Comic Neue", "Great Vibes", "Roboto Mono", monospace,
           cursive;
         color: white;
@@ -288,6 +276,24 @@
         to {
           opacity: 0;
         }
+      }
+      @media (max-width: 960px) {
+        .grid-2-columns {
+          grid-template-columns: 1fr;
+          grid-gap: 32px;
+        }
+        p {
+          color: #e23fa3;
+          font-size: 12px;
+          text-align: center;
+          font-family: "Comic Neue", "Great Vibes", "Roboto Mono", monospace,
+            cursive;
+          margin: 35px;
+          padding: 35px;
+        }
+      }
+      main {
+        padding: 30px;
       }
     </style>
     <script>
@@ -599,9 +605,7 @@
           </div>
         </div>
       </section>
-      <h1 class="text-center">
-        This webpage was coded by Diana Menendez! 💕
-      </h1>
+      <h1 class="text-center">This webpage was coded by Diana Menendez! 💕</h1>
     </div>
   </body>
 </html>
