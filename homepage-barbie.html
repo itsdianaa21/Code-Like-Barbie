@@ -24,10 +24,11 @@
     <style>
       .barbie-name {
         width: 100%;
-        display: block;
         transform: rotate(17deg);
         max-height: 100px;
         max-width: 200px;
+        position: static;
+        margin: 0 10px;
       }
       nav {
         position: sticky;
@@ -44,7 +45,7 @@
         color: #e23fa3;
         display: inline-block;
         margin: 20px 20px;
-        font-size: 22px;
+        font-size: 32px;
         font-family: "Comic Neue", "Great Vibes", "Roboto Mono", monospace,
           cursive;
         font-weight: 900;
@@ -62,18 +63,21 @@
       }
       header h1,
       header p {
+        background-color: #ffabd9;
+        color: #e23fa3;
         font-weight: 700;
         line-height: 1;
-        color: #e23fa3;
-        font-size: 36px;
+        font-size: 48px;
         text-align: center;
         font-family: "Comic Neue", "Great Vibes", "Roboto Mono", monospace,
           cursive;
-        margin: 10px;
-        padding: 30px;
+        margin: 30px;
+        padding: 10px;
       }
       main {
         background-color: white;
+        margin: 30px;
+        padding: 50px;
       }
       .main-picture {
         max-width: 100%;
@@ -114,16 +118,15 @@
         perspective: 1200px;
         margin: 0 auto;
         overflow: hidden;
-        height: 600px;
         width: 1000px;
-        padding: 50px;
-        border: solid 15px;
+        padding: 100px;
+        border: solid 25px;
         border-style: dotted;
         color: #e23fa3;
       }
       div#carousel ~ span {
         color: #e23fa3;
-        background-color: #ffabd9;
+        font-weight: bold;
         margin: 5%;
         display: inline-block;
         text-decoration: none;
@@ -134,7 +137,7 @@
         line-height: 0;
       }
       div#carousel ~ span:hover {
-        color: white;
+        color: #ffabd9;
         cursor: pointer;
       }
       figure#spinner {
@@ -325,7 +328,9 @@
     </script>
     <title>Code like Barbie</title>
   </head>
-  <body>
+  <body
+    background="images/pink-glitter-sparkle-background-your-design-pink-glitter-sparkle-background-your-design-high-resolution-photo-106534268.webp"
+  >
     <nav class="d-flex justify-content-between">
       <div>
         <img
